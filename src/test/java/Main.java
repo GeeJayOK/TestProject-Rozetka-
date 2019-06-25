@@ -4,9 +4,10 @@ import org.openqa.selenium.WebElement;
 import pages.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class MainClass {
+public class Main {
     public static void main(String[] args) {
 
         System.setProperty("webdriver.chrome.driver", "src/resources/webdriver/linux/chromedriver");
@@ -25,14 +26,17 @@ public class MainClass {
 
         searchField.sendKeys("iPhone");
 
-        WebElement findButton = driver.findElement(By.xpath(homePage.FIND_BUTTON));
-        findButton.click();
+        Assert.assertTrue(driver.findElement(By.linkText("iphone xs")).isDisplayed());
 
-        WebElement searchResult = driver.findElement(By.xpath(homePage.SEARCH_CATEGORY));
+        driver.findElement(By.linkText("iphone xs")).click();
 
-        Assert.assertTrue(searchResult.isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath(homePage.SEARCH_RESULT)).isDisplayed());
+
 
         driver.quit();
+
+        //List<WebElement> searchResultelements = driver.findElements(By.tagName("a"));
+
 
     }
 }
