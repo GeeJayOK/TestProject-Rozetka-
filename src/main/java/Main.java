@@ -17,10 +17,9 @@ public class Main {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 
-        driver.get(homePage.URL);
+        driver.get(homePage.userOpenHomepage());
 
-
-        WebElement searchField = driver.findElement(By.xpath(homePage.SEARCH_FIELD));
+        WebElement searchField = driver.findElement(By.xpath(homePage.checkSearchField()));
 
         Assert.assertTrue(searchField.isDisplayed());
 
