@@ -1,5 +1,3 @@
-package pages;
-
 import org.junit.Test;
 
 

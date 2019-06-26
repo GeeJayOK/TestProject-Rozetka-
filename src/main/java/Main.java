@@ -1,15 +1,11 @@
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import pages.HomePage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) {
 
+
+    }
+}
+     /*
         System.setProperty("webdriver.chrome.driver", "src/resources/webdriver/linux/chromedriver");
         HomePage homePage = new HomePage();
         WebDriver driver = new ChromeDriver();
@@ -35,7 +31,4 @@ public class Main {
         driver.quit();
 
         //List<WebElement> searchResultelements = driver.findElements(By.tagName("a"));
-
-
-    }
-}
+     */
