@@ -1,6 +1,7 @@
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.util.concurrent.TimeUnit;
 
 public class HomePageTest {
@@ -8,15 +9,16 @@ public class HomePageTest {
     HomePage homePage = new HomePage(driver);
 
     @Before
-    public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "src/resources/webdriver/linux/chromedriver");
+    public void setUp() {
+        //System.setProperty("webdriver.chrome.driver", "src/resources/webdriver/linux/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/resources/webdriver/windows/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 
