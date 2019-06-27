@@ -11,28 +11,18 @@ public class Main {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-/*
-        driver.get(homePage.userOpenHomepage());
-
-        WebElement searchField = driver.findElement(By.xpath(homePage.checkSearchField()));
-
-        Assert.assertTrue(searchField.isDisplayed());
-
-        searchField.sendKeys("iPhone");
-
-        Assert.assertTrue(driver.findElement(By.linkText("iphone xs")).isDisplayed());
-
-        driver.findElement(By.linkText("iphone xs")).click();
-
-        Assert.assertTrue(driver.findElement(By.xpath(homePage.SEARCH_RESULT)).isDisplayed());
+        driver.get("https://rozetka.com.ua/");
 
 
+        HomePage homePage = new HomePage(driver);
+        homePage.typeWordInSearchField();
+        homePage.checkEnteredWord();
+        SearchPage searchPage = new SearchPage(driver);
+        searchPage.productSearch();
+        ProductPage productPage = new ProductPage(driver);
+        productPage.userSelectSpaceGrayColor();
+        productPage.clickByeButton();
+        productPage.basketOpened();
         driver.quit();
-
-
-     //List<WebElement> searchResultelements = driver.findElements(By.tagName("a"));
-    */
     }
-
 }
