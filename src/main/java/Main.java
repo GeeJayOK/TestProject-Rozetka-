@@ -1,6 +1,5 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.util.concurrent.TimeUnit;
 
 public class Main {
@@ -13,16 +12,14 @@ public class Main {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://rozetka.com.ua/");
 
-
         HomePage homePage = new HomePage(driver);
         homePage.typeWordInSearchField();
-        homePage.checkEnteredWord();
+        homePage.clickEnteredWord();
         SearchPage searchPage = new SearchPage(driver);
         searchPage.productSearch();
         ProductPage productPage = new ProductPage(driver);
         productPage.userSelectSpaceGrayColor();
         productPage.clickByeButton();
-        productPage.basketOpened();
         driver.quit();
     }
 }

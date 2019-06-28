@@ -1,10 +1,11 @@
 import org.junit.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class RozerkaTest {
+public class RozetkaTest {
 
     private WebDriver driver;
     private HomePage homePage;
@@ -19,20 +20,24 @@ public class RozerkaTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get("https://rozetka.com.ua/");
-
         homePage = new HomePage(driver);
     }
 
     @Test
     public void searchIphoneTest() {
+        Assert.assertTrue(driver.findElement(By.xpath("//input[@name='search']")).isDisplayed());
         homePage.typeWordInSearchField();
-        homePage.checkEnteredWord();
+        Assert.assertTrue(driver.findElement(By.linkText("iphone xs")).isDisplayed());
+        homePage.clickEnteredWord();
+        Assert.assertTrue(driver.findElement(By.xpath("//div[@name='search_list']")).isDisplayed());
         searchPage = new SearchPage(driver);
         searchPage.productSearch();
         productPage = new ProductPage(driver);
+        Assert.assertTrue(driver.findElement(By.xpath("//li[3]//pp-item-color[1]//a[1]")).isDisplayed());
         productPage.userSelectSpaceGrayColor();
+        Assert.assertTrue(driver.findElement(By.xpath("//button[contains(text(),'Купить')]")).isDisplayed());
         productPage.clickByeButton();
-        productPage.basketOpened();
+        Assert.assertTrue(driver.findElement(By.xpath("//h2[contains(text(),'Вы добавили товар в корзину')]")).isDisplayed());
     }
 
     @After
