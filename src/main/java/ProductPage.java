@@ -5,7 +5,7 @@ public class ProductPage {
 
     private WebDriver driver;
 
-    private By SPACE_GRAY_COLOR = By.xpath("//li[3]//pp-item-color[1]//a[1]");
+    private By SPACE_GRAY_COLOR = By.xpath("//li[2]//pp-item-color[1]//a[1]//span[1]");
     private By BYE_BUTTON = By.xpath("//button[contains(text(),'Купить')]");
 
     public ProductPage(WebDriver driver) {
