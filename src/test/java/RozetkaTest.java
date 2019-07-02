@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
