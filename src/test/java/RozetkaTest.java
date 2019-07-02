@@ -1,10 +1,14 @@
-
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.concurrent.TimeUnit;
+import locators.Locators;
+import pages.HomePage;
+import pages.ProductPage;
+import pages.SearchPage;
+
 
 public class RozetkaTest {
 
@@ -18,29 +22,29 @@ public class RozetkaTest {
         System.setProperty("webdriver.chrome.driver", "src/resources/webdriver/linux/chromedriver");
         //System.setProperty("webdriver.chrome.driver", "src/resources/webdriver/windows/chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setHeadless(true);
+        chromeOptions.setHeadless(false);
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.get("https://rozetka.com.ua/");
+        driver.get(Locators.BASE_URL);
         homePage = new HomePage(driver);
     }
 
     @Test
     public void searchIphoneTest() {
-        Assert.assertTrue(driver.findElement(By.xpath("//input[@name='search']")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath(Locators.SEARCH_FIELD)).isDisplayed());
         homePage.typeWordInSearchField();
-        Assert.assertTrue(driver.findElement(By.linkText("iphone xs")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.linkText(Locators.SEARCH_WORD)).isDisplayed());
         homePage.clickEnteredWord();
-        Assert.assertTrue(driver.findElement(By.xpath("//div[@name='search_list']")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath(Locators.SEARCH_LIST)).isDisplayed());
         searchPage = new SearchPage(driver);
         searchPage.productSearch();
         productPage = new ProductPage(driver);
-        Assert.assertTrue(driver.findElement(By.xpath("//li[3]//pp-item-color[1]//a[1]")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath(Locators.IPHONEXS_PAGE)).isDisplayed());
         productPage.userSelectSpaceGrayColor();
-        Assert.assertTrue(driver.findElement(By.xpath("//button[contains(text(),'Купить')]")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath(Locators.BUTTON_BUY)).isDisplayed());
         productPage.clickByeButton();
-        Assert.assertTrue(driver.findElement(By.xpath("//h2[contains(text(),'Вы добавили товар в корзину')]")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath(Locators.BASKET)).isDisplayed());
     }
 
     @After

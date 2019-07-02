@@ -1,5 +1,9 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.HomePage;
+import pages.ProductPage;
+import pages.SearchPage;
+
 import java.util.concurrent.TimeUnit;
 
 public class Main {
