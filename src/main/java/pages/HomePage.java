@@ -12,12 +12,12 @@ public class HomePage {
     }
 
     public HomePage typeWordInSearchField() {
-        driver.findElement(By.xpath(Locators.SEARCH_FIELD)).sendKeys("iphone");
+        driver.findElement(By.xpath(Locators.SEARCH_FIELD)).sendKeys(Locators.SEARCH_WORD);
         return this;
     }
 
     public SearchPage clickEnteredWord() {
-        driver.findElement(By.linkText(Locators.SEARCH_WORD)).click();
+        driver.findElement(By.linkText(Locators.ENTERED_WORD)).click();
         return new SearchPage(driver);
     }
 }

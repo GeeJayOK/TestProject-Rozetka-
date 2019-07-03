@@ -16,7 +16,7 @@ public class ProductPage {
         return this;
     }
 
-    public ProductPage clickByeButton() {
+    public ProductPage clickBuyButton() {
         driver.findElement(By.xpath(Locators.BUTTON_BUY)).click();
         return this;
     }

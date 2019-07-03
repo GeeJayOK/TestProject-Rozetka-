@@ -3,7 +3,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
 import pages.ProductPage;
 import pages.SearchPage;
-
 import java.util.concurrent.TimeUnit;
 
 public class Main {
@@ -23,7 +22,7 @@ public class Main {
         searchPage.productSearch();
         ProductPage productPage = new ProductPage(driver);
         productPage.userSelectSpaceGrayColor();
-        productPage.clickByeButton();
+        productPage.clickBuyButton();
         driver.quit();
     }
 }
