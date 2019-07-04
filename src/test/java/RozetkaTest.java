@@ -9,13 +9,13 @@ import pages.HomePage;
 import pages.ProductPage;
 import pages.SearchPage;
 
-public class RozetkaTest {
+public class RozetkaTest extends GetDriver{
 
     private WebDriver driver;
     private HomePage homePage;
     private SearchPage searchPage;
     private ProductPage productPage;
-    private GetDriver getDriver;
+    //private GetDriver getDriver;
 
     @Before
     public void setUp() {
@@ -46,6 +46,13 @@ public class RozetkaTest {
         Assert.assertTrue(driver.findElement(By.xpath(Locators.BUTTON_BUY)).isDisplayed());
         productPage.clickBuyButton();
         Assert.assertTrue(driver.findElement(By.xpath(Locators.BASKET)).isDisplayed());
+    }
+
+    @Test
+    public void searchIphoneTest2() {
+        driverInit();
+        driverSett(driverInit());
+        driverOff(driverSett(driverInit()));
     }
 
     @After
