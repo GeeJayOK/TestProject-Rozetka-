@@ -20,8 +20,8 @@ public class RozetkaTest {
     @Before
     public void setUp() {
 
-        System.setProperty("webdriver.chrome.driver", "src/resources/webdriver/linux/chromedriver");
-        //System.setProperty("webdriver.chrome.driver", "src/resources/webdriver/windows/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/webdriver/linux/chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "src/test/resources/webdriver/windows/chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setHeadless(false);
         driver = new ChromeDriver(chromeOptions);
