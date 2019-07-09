@@ -9,17 +9,15 @@ import pages.HomePage;
 import pages.ProductPage;
 import pages.SearchPage;
 
-public class RozetkaTest extends GetDriver{
+public class RozetkaTest {
 
     private WebDriver driver;
     private HomePage homePage;
     private SearchPage searchPage;
     private ProductPage productPage;
-    //private GetDriver getDriver;
 
     @Before
     public void setUp() {
-
         System.setProperty("webdriver.chrome.driver", "src/test/resources/webdriver/linux/chromedriver");
         //System.setProperty("webdriver.chrome.driver", "src/test/resources/webdriver/windows/chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -34,9 +32,9 @@ public class RozetkaTest extends GetDriver{
     @Test
     public void searchIphoneTest() {
         Assert.assertTrue(driver.findElement(By.xpath(Locators.SEARCH_FIELD)).isDisplayed());
-        homePage.typeWordInSearchField();
-        Assert.assertTrue(driver.findElement(By.linkText(Locators.ENTERED_WORD)).isDisplayed());
-        homePage.clickEnteredWord();
+        homePage.typeWordInSearchField("iphone xs");
+        Assert.assertTrue(driver.findElement(By.linkText("iphone xs max")).isDisplayed());
+        homePage.clickEnteredWord("iphone xs max");
         Assert.assertTrue(driver.findElement(By.xpath(Locators.SEARCH_LIST)).isDisplayed());
         searchPage = new SearchPage(driver);
         searchPage.productSearch();
@@ -46,13 +44,6 @@ public class RozetkaTest extends GetDriver{
         Assert.assertTrue(driver.findElement(By.xpath(Locators.BUTTON_BUY)).isDisplayed());
         productPage.clickBuyButton();
         Assert.assertTrue(driver.findElement(By.xpath(Locators.BASKET)).isDisplayed());
-    }
-
-    @Test
-    public void searchIphoneTest2() {
-        driverInit();
-        driverSett(driverInit());
-        driverOff(driverSett(driverInit()));
     }
 
     @After

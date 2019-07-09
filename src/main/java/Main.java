@@ -16,8 +16,8 @@ public class Main {
         driver.get("https://rozetka.com.ua/");
 
         HomePage homePage = new HomePage(driver);
-        homePage.typeWordInSearchField();
-        homePage.clickEnteredWord();
+        homePage.typeWordInSearchField("");
+        homePage.clickEnteredWord("");
         SearchPage searchPage = new SearchPage(driver);
         searchPage.productSearch();
         ProductPage productPage = new ProductPage(driver);

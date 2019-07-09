@@ -3,8 +3,6 @@ package locators;
 public interface Locators {
 
     String BASE_URL = "https://rozetka.com.ua/";
-    String SEARCH_WORD = "iphone";
-    String ENTERED_WORD = "iphone xs";
     String SEARCH_FIELD = "//input[@name='search']";
     String SEARCH_LIST = "//div[@name='search_list']";
     String SELECT_GOLD = "//a[@href='https://rozetka.com.ua/apple_iphone_xs_max_512_gb_gold/p54189216/']";

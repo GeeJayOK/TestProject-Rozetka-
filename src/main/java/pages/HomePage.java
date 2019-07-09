@@ -11,13 +11,13 @@ public class HomePage {
         this.driver = driver;
     }
 
-    public HomePage typeWordInSearchField() {
-        driver.findElement(By.xpath(Locators.SEARCH_FIELD)).sendKeys(Locators.SEARCH_WORD);
+    public HomePage typeWordInSearchField(String searchWord) {
+        driver.findElement(By.xpath(Locators.SEARCH_FIELD)).sendKeys(searchWord);
         return this;
     }
 
-    public SearchPage clickEnteredWord() {
-        driver.findElement(By.linkText(Locators.ENTERED_WORD)).click();
+    public SearchPage clickEnteredWord(String enteredWord) {
+        driver.findElement(By.linkText(enteredWord)).click();
         return new SearchPage(driver);
     }
 }
