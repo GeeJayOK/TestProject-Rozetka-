@@ -21,7 +21,7 @@ public class RozetkaTest {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/webdriver/linux/chromedriver");
         //System.setProperty("webdriver.chrome.driver", "src/test/resources/webdriver/windows/chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setHeadless(false);
+        chromeOptions.setHeadless(true);
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
