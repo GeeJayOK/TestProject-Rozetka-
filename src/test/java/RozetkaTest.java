@@ -37,7 +37,7 @@ public class RozetkaTest {
 
     @Test
     public void searchIphoneTest() {
-        Assert.assertTrue(driver.findElement(By.xpath(Locators.SEARCH_FIELD)).isDisplayed());
+        //Assert.assertTrue(driver.findElement(By.xpath(Locators.SEARCH_FIELD)).isDisplayed());
         homePage.typeWordInSearchField("iphone xs");
         Assert.assertTrue(driver.findElement(By.linkText("iphone xs max")).isDisplayed());
         homePage.clickEnteredWord("iphone xs max");
