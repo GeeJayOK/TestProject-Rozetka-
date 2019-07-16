@@ -23,7 +23,7 @@ public class RozetkaTest {
             System.setProperty("webdriver.chrome.driver", "src/test/resources/webdriver/linux/chromedriver");
             //System.setProperty("webdriver.chrome.driver", "src/test/resources/webdriver/windows/chromedriver.exe");
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.setHeadless(false);
+            chromeOptions.setHeadless(true);
             driver = new ChromeDriver(chromeOptions);
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
@@ -37,7 +37,7 @@ public class RozetkaTest {
 
     @Test
     public void searchIphoneTest() {
-        //Assert.assertTrue(driver.findElement(By.xpath(Locators.SEARCH_FIELD)).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath(Locators.SEARCH_FIELD)).isDisplayed());
         homePage.typeWordInSearchField("iphone xs");
         Assert.assertTrue(driver.findElement(By.linkText("iphone xs max")).isDisplayed());
         homePage.clickEnteredWord("iphone xs max");
