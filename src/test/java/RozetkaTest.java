@@ -1,9 +1,9 @@
 import org.junit.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.*;
+
 import java.util.concurrent.TimeUnit;
+
 import locators.Locators;
 import pages.HomePage;
 import pages.ProductPage;
@@ -18,15 +18,21 @@ public class RozetkaTest {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/webdriver/linux/chromedriver");
-        //System.setProperty("webdriver.chrome.driver", "src/test/resources/webdriver/windows/chromedriver.exe");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setHeadless(true);
-        driver = new ChromeDriver(chromeOptions);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.get(Locators.BASE_URL);
-        homePage = new HomePage(driver);
+
+        try {
+            System.setProperty("webdriver.chrome.driver", "src/test/resources/webdriver/linux/chromedriver");
+            //System.setProperty("webdriver.chrome.driver", "src/test/resources/webdriver/windows/chromedriver.exe");
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.setHeadless(false);
+            driver = new ChromeDriver(chromeOptions);
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+            driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+            driver.get(Locators.BASE_URL);
+            homePage = new HomePage(driver);
+        } catch (Exception exc) {
+            System.out.println(exc);
+        }
     }
 
     @Test
