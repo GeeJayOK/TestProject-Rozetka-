@@ -3,11 +3,11 @@ package pages;
 import org.openqa.selenium.*;
 import locators.Locators;
 
-public class SearchPage {
-    private WebDriver driver;
+public class SearchPage extends BasePage{
+    //private WebDriver driver;
 
     public SearchPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public ProductPage productSearch() {

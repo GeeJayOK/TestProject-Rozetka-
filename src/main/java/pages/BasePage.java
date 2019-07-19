@@ -1,22 +1,25 @@
 package pages;
 
+import locators.Locators;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
 import java.util.concurrent.TimeUnit;
 
-public abstract class BasePage {
+public class BasePage {
 
     protected WebDriver driver;
 
-    public BasePage() {
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
+    }
 
+    public WebDriver getDriver() {
         try {
             System.setProperty("webdriver.chrome.driver", "src/test/resources/webdriver/linux/chromedriver");
             //System.setProperty("webdriver.chrome.driver", "src/test/resources/webdriver/windows/chromedriver.exe");
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.setHeadless(true);
+            chromeOptions.setHeadless(false);
             driver = new ChromeDriver(chromeOptions);
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -25,6 +28,15 @@ public abstract class BasePage {
         } catch (Exception exc) {
             System.out.println(exc);
         }
+        return driver;
+    }
 
+    public void tearDown() {
+        driver.quit();
+    }
+
+    public HomePage openHomePage() {
+        driver.navigate().to(Locators.BASE_URL);
+        return new HomePage(driver);
     }
 }

@@ -3,17 +3,21 @@ package pages;
 import org.openqa.selenium.*;
 import locators.Locators;
 
-public class HomePage {
+public class HomePage extends BasePage {
 
-    private WebDriver driver;
+    //private WebDriver driver;
 
     public HomePage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public HomePage typeWordInSearchField(String searchWord) {
         driver.findElement(By.xpath(Locators.SEARCH_FIELD)).sendKeys(searchWord);
-        return this;
+        return new HomePage(driver);
+    }
+
+    public WebElement checkThatWordIsTyped() {
+        return driver.findElement(By.xpath(Locators.SEARCH_FIELD));
     }
 
     public SearchPage clickEnteredWord(String enteredWord) {

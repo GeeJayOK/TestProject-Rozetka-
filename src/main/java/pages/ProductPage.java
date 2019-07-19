@@ -3,12 +3,12 @@ package pages;
 import org.openqa.selenium.*;
 import locators.Locators;
 
-public class ProductPage {
+public class ProductPage extends BasePage{
 
-    private WebDriver driver;
+    //private WebDriver driver;
 
     public ProductPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public ProductPage userSelectSpaceGrayColor() {
