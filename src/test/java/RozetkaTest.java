@@ -10,7 +10,7 @@ public class RozetkaTest {
 
     private WebDriver driver;
     private BasePage basePage;
-    private HomePage objHomepage;
+    private HomePage homePage;
     private SearchPage searchPage;
     private ProductPage productPage;
 
@@ -39,15 +39,9 @@ public class RozetkaTest {
 
     @Test
     public void searchIphoneTest() {
-        HomePage homePage = new HomePage();
+        homePage = new HomePage();
         homePage.typeWordInSearchField("iphone xs");
 
-        //objHomepage = new HomePage();
-        //Assert.assertTrue(openHomepage.checkThatWordIsTyped().isDisplayed());
-        objHomepage.typeWordInSearchField("iphone xs");
-        Assert.assertTrue(objHomepage.checkThatWordIsTyped().isDisplayed());
-        //Assert.assertTrue(driver.findElement(By.linkText("iphone xs max")).isDisplayed());
-        objHomepage.clickEnteredWord("iphone xs");
 
 
 //        Assert.assertTrue(driver.findElement(By.xpath(Locators.SEARCH_FIELD)).isDisplayed());
