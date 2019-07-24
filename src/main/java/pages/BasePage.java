@@ -10,9 +10,9 @@ public class BasePage {
 
     protected WebDriver driver;
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
-    }
+//    public BasePage(WebDriver driver) {
+//        this.driver = driver;
+//    }
 
     public WebDriver getDriver() {
         try {
@@ -36,7 +36,7 @@ public class BasePage {
     }
 
     public HomePage openHomePage() {
-        driver.navigate().to(Locators.BASE_URL);
-        return new HomePage(driver);
+        driver.get(Locators.BASE_URL);
+        return new HomePage();
     }
 }

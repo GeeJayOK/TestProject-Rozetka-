@@ -15,14 +15,14 @@ public class Main {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.get("https://rozetka.com.ua/");
 
-        HomePage homePage = new HomePage(driver);
-        homePage.typeWordInSearchField("");
-        homePage.clickEnteredWord("");
-        SearchPage searchPage = new SearchPage(driver);
-        searchPage.productSearch();
-        ProductPage productPage = new ProductPage(driver);
-        productPage.userSelectSpaceGrayColor();
-        productPage.clickBuyButton();
-        driver.quit();
+//        HomePage homePage = new HomePage(driver);
+//        homePage.typeWordInSearchField("");
+//        homePage.clickEnteredWord("");
+//        SearchPage searchPage = new SearchPage(driver);
+//        searchPage.productSearch();
+//        ProductPage productPage = new ProductPage(driver);
+//        productPage.userSelectSpaceGrayColor();
+//        productPage.clickBuyButton();
+//        driver.quit();
     }
 }

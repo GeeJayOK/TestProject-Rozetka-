@@ -3,20 +3,22 @@ import org.openqa.selenium.*;
 import locators.Locators;
 import pages.BasePage;
 import pages.HomePage;
+import pages.ProductPage;
+import pages.SearchPage;
 
 public class RozetkaTest {
 
     private WebDriver driver;
-//    private BasePage basePage;
-//    private HomePage homePage;
-//    private SearchPage searchPage;
-//    private ProductPage productPage;
+    private BasePage basePage;
+    private HomePage objHomepage;
+    private SearchPage searchPage;
+    private ProductPage productPage;
 
     @Before
     public void setUp() {
-       BasePage initBasePage = new BasePage(driver);
-       initBasePage.getDriver();
-       initBasePage.openHomePage();
+        BasePage initBasePage = new BasePage();
+        initBasePage.getDriver();
+        initBasePage.openHomePage();
 
 //
 //        try {
@@ -37,12 +39,15 @@ public class RozetkaTest {
 
     @Test
     public void searchIphoneTest() {
-        HomePage openHomepage = new HomePage(driver);
+        HomePage homePage = new HomePage();
+        homePage.typeWordInSearchField("iphone xs");
+
+        //objHomepage = new HomePage();
         //Assert.assertTrue(openHomepage.checkThatWordIsTyped().isDisplayed());
-        openHomepage.typeWordInSearchField("iphone xs");
-        Assert.assertTrue(openHomepage.checkThatWordIsTyped().isDisplayed());
+        objHomepage.typeWordInSearchField("iphone xs");
+        Assert.assertTrue(objHomepage.checkThatWordIsTyped().isDisplayed());
         //Assert.assertTrue(driver.findElement(By.linkText("iphone xs max")).isDisplayed());
-        openHomepage.clickEnteredWord("iphone xs");
+        objHomepage.clickEnteredWord("iphone xs");
 
 
 //        Assert.assertTrue(driver.findElement(By.xpath(Locators.SEARCH_FIELD)).isDisplayed());
@@ -62,7 +67,7 @@ public class RozetkaTest {
 
     @After
     public void shotDown() {
-        driver.quit();
+        basePage.tearDown();
 
         //
 //    public void tearDown() {
