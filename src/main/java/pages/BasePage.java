@@ -8,11 +8,11 @@ import java.util.concurrent.TimeUnit;
 
 public class BasePage {
 
-    protected WebDriver driver;
+    protected static WebDriver driver;
 
-//    public BasePage(WebDriver driver) {
-//        this.driver = driver;
-//    }
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
+    }
 
     public WebDriver getDriver() {
         try {
@@ -24,7 +24,6 @@ public class BasePage {
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-
         } catch (Exception exc) {
             System.out.println(exc);
         }
@@ -37,6 +36,6 @@ public class BasePage {
 
     public HomePage openHomePage() {
         driver.get(Locators.BASE_URL);
-        return new HomePage();
+        return new HomePage(driver);
     }
 }

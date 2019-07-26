@@ -5,23 +5,24 @@ import locators.Locators;
 
 public class HomePage extends BasePage {
 
-    private WebDriver driver;
+    //private WebDriver driver;
 
-//    public HomePage(WebDriver driver) {
-//        super(driver);
-//    }
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
 
     public HomePage typeWordInSearchField(String searchWord) {
         getDriver().findElement(By.xpath(Locators.SEARCH_FIELD)).sendKeys(searchWord);
-        return new HomePage();
+        return this;
     }
 
-    public WebElement checkThatWordIsTyped() {
-        return getDriver().findElement(By.xpath(Locators.SEARCH_FIELD));
+    public HomePage checkThatWordIsTyped() {
+        getDriver().findElement(By.xpath(Locators.SEARCH_FIELD));
+        return this;
     }
 
     public SearchPage clickEnteredWord(String enteredWord) {
         getDriver().findElement(By.linkText(enteredWord)).click();
-        return new SearchPage();
+        return new SearchPage(driver);
     }
 }

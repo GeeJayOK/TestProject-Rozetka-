@@ -16,9 +16,9 @@ public class RozetkaTest {
 
     @Before
     public void setUp() {
-        BasePage initBasePage = new BasePage();
-        initBasePage.getDriver();
-        initBasePage.openHomePage();
+        basePage = new BasePage(driver);
+        basePage.getDriver();
+        //basePage.openHomePage();
 
 //
 //        try {
@@ -39,9 +39,8 @@ public class RozetkaTest {
 
     @Test
     public void searchIphoneTest() {
-        homePage = new HomePage();
+        basePage.openHomePage();
         homePage.typeWordInSearchField("iphone xs");
-
 
 
 //        Assert.assertTrue(driver.findElement(By.xpath(Locators.SEARCH_FIELD)).isDisplayed());

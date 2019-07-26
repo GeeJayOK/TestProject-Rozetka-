@@ -7,9 +7,9 @@ public class ProductPage extends BasePage{
 
     //private WebDriver driver;
 
-//    public ProductPage(WebDriver driver) {
-//        super(driver);
-//    }
+    public ProductPage(WebDriver driver) {
+        super(driver);
+    }
 
     public ProductPage userSelectSpaceGrayColor() {
         getDriver().findElement(By.xpath(Locators.SPACE_GRAY_COLOR)).click();
